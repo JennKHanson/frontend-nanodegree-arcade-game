@@ -5,9 +5,9 @@ class Enemy {
     this.x = 50;
     this.y = 1;
   }
-  //update(dt) {
-    //{};
-  //}
+  update(dt) {
+    //{this.x = x};
+  }
   render(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
@@ -23,14 +23,33 @@ class Player {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
 
-  //handleInput(){
-//}
+  handleInput(input){
+    if ('left') {
+      this.x = this.x +- 70;
+      console.log('left');
+    }
+    else if ('right') {
+      this.x = this.x + 70;
+      console.log('right');
+    }
+    else if ('up') {
+      this.y = this.y +- 70;
+    }
+    else if ('down') {
+      this.y = this.y + 70;
+        }
+
+  }
 }
 
 const player = new Player();
 const bug1 = new Enemy();
+const bug2 = new Enemy();
+const bug3 = new Enemy();
 const allEnemies = [];
 allEnemies.push(bug1);
+allEnemies.push(bug2);
+allEnemies.push(bug3);
 
 // Now write your own player class
 // This class requires an update(), render() and
