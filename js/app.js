@@ -22,7 +22,22 @@ class Player {
   render(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
-  
+  update(dt){
+    if (this.x = -10) {
+      this.x = -10;
+    }
+    else if (this.x = 410) {
+      this.x = 410;
+    }
+  }
+
+/*
+  update(dt) {
+    this.isOutOfBoundsX = this.x > 410;
+    this.isOutOfBoundsY = this.y < 1;
+  }*/
+
+/*
 outofBounds(){
   if (this.x = -10) {
     this.x = -10;
@@ -30,9 +45,8 @@ outofBounds(){
   else if (this.x = 410) {
     this.x = 410;
   }
-
 }
-
+*/
 
   handleInput(input){
     if (input == 'left') {
