@@ -1,13 +1,17 @@
 
 class Enemy {
-  constructor(){
+  constructor(x, y){
     this.sprite = 'images/enemy-bug.png';
-    this.x = 50;
-    this.y = 1;
+    this.x = -150; //-150
+    this.y = 60; // 60
   }
   update(dt) {
-    //{this.x = x};
+    if (this.x >= -150 && this.x < 500) {
+      this.x += 100 * dt;
+    }
+    else (this.x = -150);
   }
+
   render(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
@@ -22,14 +26,6 @@ class Player {
   render(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
-  /*update(dt){
-    if (this.x = -10) {
-      this.x = -10;
-    }
-    else if (this.x = 410) {
-      this.x = 410;
-    }
-  }*/
 
 /*
   update(dt) {
@@ -37,17 +33,7 @@ class Player {
     this.isOutOfBoundsY = this.y < 1;
   }*/
 
-/*
-outofBounds(){
-  if (this.x = -10) {
-    this.x = -10;
-  }
-  else if (this.x = 410) {
-    this.x = 410;
-  }
-}
-*/
-
+//character movement with arrows and character boundaries
   handleInput(input){
     if (input == 'left' && this.x >= 0) {
       this.x = this.x +- 70;
@@ -66,7 +52,7 @@ outofBounds(){
 
 const player = new Player();
 const bug1 = new Enemy();
-const bug2 = new Enemy();
+const bug2 = new Enemy(-50, 50);
 const bug3 = new Enemy();
 const allEnemies = [];
 allEnemies.push(bug1);
