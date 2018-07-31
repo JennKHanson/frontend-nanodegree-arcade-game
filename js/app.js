@@ -25,14 +25,26 @@ class Player {
   }
   render(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-  }
+    }
 
-/*
-  update(dt) {
-    this.isOutOfBoundsX = this.x > 410;
-    this.isOutOfBoundsY = this.y < 1;
-  }*/
+  update(){
+    for (let enemy of allEnemies) {
+        if ((enemy.x >= (player.x - .5)) && (enemy.x <= (player.x + .5))){
+          console.log ('true');
+      }
+      
+      if ((enemy.y >= (player.y - .5)) && (enemy.y <= (player.y + .5))){
+        console.log ('row');
+    }
+      //  else (console.log('false'));
+      //}
 
+    }
+
+  /*if (this.x = Enemy(x)) {
+    console.log ("collision");*/
+
+}
 //character movement with arrows and character boundaries
 //make into swith statement?
   handleInput(input){
