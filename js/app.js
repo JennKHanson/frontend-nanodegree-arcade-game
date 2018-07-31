@@ -29,11 +29,11 @@ class Player {
 
   update(){
     for (let enemy of allEnemies) {
-        if ((enemy.x >= (player.x - .5)) && (enemy.x <= (player.x + .5))){
-          console.log ('true');
-      }
-      
-      if ((enemy.y >= (player.y - .5)) && (enemy.y <= (player.y + .5))){
+        //if ((enemy.x >= (player.x - .5)) && (enemy.x <= (player.x + .5))){
+          //console.log ('true');
+      //}
+
+      if ((enemy.y >= (player.y - 1)) && (enemy.y <= (player.y + 1))){
         console.log ('row');
     }
       //  else (console.log('false'));
