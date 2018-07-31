@@ -16,8 +16,8 @@ class Enemy {
 class Player {
   constructor(){
     this.sprite = 'images/char-cat-girl.png';
-    this.x = 2;
-    this.y = 5;
+    this.x = 200;
+    this.y = 420;
   }
   render(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
