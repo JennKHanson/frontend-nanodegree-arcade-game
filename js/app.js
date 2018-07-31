@@ -1,4 +1,4 @@
-
+//y 50 150 225
 class Enemy {
   constructor(x, y){
     this.sprite = 'images/enemy-bug.png';
@@ -21,7 +21,7 @@ class Player {
   constructor(){
     this.sprite = 'images/char-cat-girl.png';
     this.x = 200; //200
-    this.y = 420; //420
+    this.y = 420; //420 280
   }
   render(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -29,15 +29,10 @@ class Player {
 
   update(){
     for (let enemy of allEnemies) {
-        //if ((enemy.x >= (player.x - .5)) && (enemy.x <= (player.x + .5))){
-          //console.log ('true');
-      //}
-
-      if ((enemy.y >= (player.y - 1)) && (enemy.y <= (player.y + 1))){
-        console.log ('row');
-    }
-      //  else (console.log('false'));
-      //}
+        if ((enemy.x >= player.x - 40) && (enemy.x <= player.x + 40)){
+            if ((enemy.y >= player.y - 40) && (enemy.y <= player.y + 40)){
+      player.x = 200; player.y = 420;
+    }}
 
     }
 
