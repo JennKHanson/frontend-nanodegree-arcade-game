@@ -1,13 +1,14 @@
 //y 50 150 225
 class Enemy {
-  constructor(x, y){
+  constructor(x, y, speed){
     this.sprite = 'images/enemy-bug.png';
     this.x = x; // -150
     this.y = y; // 60
+    this.speed = speed;
   }
   update(dt) {
     if (this.x >= -150 && this.x < 500) {
-      this.x += 100 * dt;
+      this.x += this.speed * dt;
     }
     else (this.x = -150);
   }
@@ -29,8 +30,8 @@ class Player {
 
   update(){
     for (let enemy of allEnemies) {
-        if ((enemy.x >= player.x - 40) && (enemy.x <= player.x + 40)){
-            if ((enemy.y >= player.y - 40) && (enemy.y <= player.y + 40)){
+        if ((enemy.x >= player.x - 75) && (enemy.x <= player.x + 75)){
+            if ((enemy.y >= player.y - 45) && (enemy.y <= player.y + 35)){
       player.x = 200; player.y = 420;
     }
 
@@ -38,32 +39,32 @@ class Player {
 
 
     }
-    if (player.y < 60) {
-      console.log ('win!');
+    if (player.y < 20) {
+    //alert('Win!');
     }
 }
 //character movement with arrows and character boundaries
 //make into swith statement?
   handleInput(input){
     if (input == 'left' && this.x >= 0) {
-      this.x = this.x +- 70;
+      this.x = this.x +- 30; //70
     }
     else if (input == 'right' && this.x <= 400) {
-      this.x = this.x + 70;
+      this.x = this.x + 30;
     }
     else if (input == 'up' && this.y > 0) {
-      this.y = this.y +- 70;
+      this.y = this.y +- 30;
     }
     else if (input == 'down' && this.y < 420) {
-      this.y = this.y + 70;
+      this.y = this.y + 30;
         }
   }
 }
 
 const player = new Player();
-const bug1 = new Enemy(-135, 70);
-const bug2 = new Enemy(-150, 150);
-const bug3 = new Enemy(-100, 235);
+const bug1 = new Enemy(-135, 70, 200);
+const bug2 = new Enemy(-150, 150, 40);
+const bug3 = new Enemy(-100, 235, 100);
 const allEnemies = [];
 allEnemies.push(bug1);
 allEnemies.push(bug2);
