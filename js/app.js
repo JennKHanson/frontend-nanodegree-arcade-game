@@ -2,20 +2,20 @@
 class Enemy {
   constructor(){
     this.sprite = 'images/enemy-bug.png';
-    this.x = 2;
-    this.y = 5;
+    this.x = 50;
+    this.y = 1;
   }
-  update(dt) {
-    {};
-  }
+  //update(dt) {
+    //{};
+  //}
   render(){
-    ctx.drawImage(Resources.get(this.sprite), this.x * 101, this.x * 83);
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
 }
 
 class Player {
   constructor(){
-    this.sprite = 'images/char-boy.png';
+    this.sprite = 'images/char-cat-girl.png';
     this.x = 2;
     this.y = 5;
   }
@@ -23,12 +23,14 @@ class Player {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
 
-  handleInput(){
-}
+  //handleInput(){
+//}
 }
 
 const player = new Player();
-const allEnemies = new Enemy();
+const bug1 = new Enemy();
+const allEnemies = [];
+allEnemies.push(bug1);
 
 // Now write your own player class
 // This class requires an update(), render() and
@@ -38,8 +40,6 @@ const allEnemies = new Enemy();
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-
-
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
