@@ -22,23 +22,31 @@ class Player {
   render(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
+  
+outofBounds(){
+  if (this.x = -10) {
+    this.x = -10;
+  }
+  else if (this.x = 410) {
+    this.x = 410;
+  }
+
+}
+
 
   handleInput(input){
-    if ('left') {
+    if (input == 'left') {
       this.x = this.x +- 70;
-      console.log('left');
     }
-    else if ('right') {
+    else if (input == 'right') {
       this.x = this.x + 70;
-      console.log('right');
     }
-    else if ('up') {
+    else if (input == 'up') {
       this.y = this.y +- 70;
     }
-    else if ('down') {
+    else if (input == 'down') {
       this.y = this.y + 70;
         }
-
   }
 }
 
