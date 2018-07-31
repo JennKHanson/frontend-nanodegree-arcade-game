@@ -32,13 +32,15 @@ class Player {
         if ((enemy.x >= player.x - 40) && (enemy.x <= player.x + 40)){
             if ((enemy.y >= player.y - 40) && (enemy.y <= player.y + 40)){
       player.x = 200; player.y = 420;
-    }}
-
     }
 
-  /*if (this.x = Enemy(x)) {
-    console.log ("collision");*/
+  }
 
+
+    }
+    if (player.y < 60) {
+      console.log ('win!');
+    }
 }
 //character movement with arrows and character boundaries
 //make into swith statement?
@@ -59,9 +61,9 @@ class Player {
 }
 
 const player = new Player();
-const bug1 = new Enemy(-135, 50);
+const bug1 = new Enemy(-135, 70);
 const bug2 = new Enemy(-150, 150);
-const bug3 = new Enemy(-100, 225);
+const bug3 = new Enemy(-100, 235);
 const allEnemies = [];
 allEnemies.push(bug1);
 allEnemies.push(bug2);
