@@ -2,8 +2,8 @@
 class Enemy {
   constructor(x, y){
     this.sprite = 'images/enemy-bug.png';
-    this.x = -150; //-150
-    this.y = 60; // 60
+    this.x = x; // -150
+    this.y = y; // 60
   }
   update(dt) {
     if (this.x >= -150 && this.x < 500) {
@@ -34,6 +34,7 @@ class Player {
   }*/
 
 //character movement with arrows and character boundaries
+//make into swith statement?
   handleInput(input){
     if (input == 'left' && this.x >= 0) {
       this.x = this.x +- 70;
@@ -51,9 +52,9 @@ class Player {
 }
 
 const player = new Player();
-const bug1 = new Enemy();
-const bug2 = new Enemy(-50, 50);
-const bug3 = new Enemy();
+const bug1 = new Enemy(-135, 50);
+const bug2 = new Enemy(-150, 150);
+const bug3 = new Enemy(-100, 225);
 const allEnemies = [];
 allEnemies.push(bug1);
 allEnemies.push(bug2);
