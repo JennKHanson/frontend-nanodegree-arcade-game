@@ -16,20 +16,20 @@ class Enemy {
 class Player {
   constructor(){
     this.sprite = 'images/char-cat-girl.png';
-    this.x = 200;
-    this.y = 420;
+    this.x = 200; //200
+    this.y = 420; //420
   }
   render(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
-  update(dt){
+  /*update(dt){
     if (this.x = -10) {
       this.x = -10;
     }
     else if (this.x = 410) {
       this.x = 410;
     }
-  }
+  }*/
 
 /*
   update(dt) {
@@ -49,16 +49,16 @@ outofBounds(){
 */
 
   handleInput(input){
-    if (input == 'left') {
+    if (input == 'left' && this.x >= 0) {
       this.x = this.x +- 70;
     }
-    else if (input == 'right') {
+    else if (input == 'right' && this.x <= 400) {
       this.x = this.x + 70;
     }
-    else if (input == 'up') {
+    else if (input == 'up' && this.y > 0) {
       this.y = this.y +- 70;
     }
-    else if (input == 'down') {
+    else if (input == 'down' && this.y < 420) {
       this.y = this.y + 70;
         }
   }
