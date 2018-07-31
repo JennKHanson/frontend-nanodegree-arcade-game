@@ -2,15 +2,15 @@
 class Enemy {
   constructor(){
     this.sprite = 'images/enemy-bug.png';
-    this.x = x * 101;
-    this.y = y * 83;
+    this.x = 2;
+    this.y = 5;
 
   }
-  //update(dt) {
-  //  function time(dt){};
-//  }
+  update(dt) {
+    function time(dt){};
+  }
   render(){
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    ctx.drawImage(Resources.get(this.sprite), this.x * 101, this.x * 83);
   }
 }
 
@@ -19,8 +19,8 @@ class Enemy {
 class Player {
   constructor(){
     this.sprite = 'images/char-boy.png';
-    this.x = 5;
-    this.y = 1;
+    this.x = 2;
+    this.y = 5;
   }
   render(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
