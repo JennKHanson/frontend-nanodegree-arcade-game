@@ -4,17 +4,14 @@ class Enemy {
     this.sprite = 'images/enemy-bug.png';
     this.x = 2;
     this.y = 5;
-
   }
   update(dt) {
-    function time(dt){};
+    {};
   }
   render(){
     ctx.drawImage(Resources.get(this.sprite), this.x * 101, this.x * 83);
   }
 }
-
-
 
 class Player {
   constructor(){
@@ -27,7 +24,6 @@ class Player {
   }
 
   handleInput(){
-
 }
 }
 
