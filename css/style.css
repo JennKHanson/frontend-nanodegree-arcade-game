@@ -1,13 +1,10 @@
 body {
     text-align: center;
-
 }
-
 
 /*
  * Styles for the modal
  */
-
 .modal {
   position: fixed;
   top: 0;

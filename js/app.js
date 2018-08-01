@@ -1,77 +1,103 @@
-
-/*
-TODO: Add number of hits
-TODO: Add levels -- bugs get faster as level increases
-TODO: Add new set of bugs to loop
-TODO: Add jewels
-TODO: walkthrough used Entity Class that
+/**
+//TODO: Add number of hits
+//TODO: Add levels -- bugs get faster as level increases
+//TODO: Add new set of bugs to loop
+//TODO: Add jewels
+//TODO: Rodrick Bloomfield's walk-through used Entity class. Implement that idea.
+//TODO: Make game responsive and available on mobile devices
+//TODO: **Make game accessible**
 */
 
+//ENEMY CLASS
+/*
+ * constructor initializes variables for enemy image, location, and speed
+ */
 class Enemy {
-  constructor(x, y, speed){
-    this.sprite = 'images/enemy-bug.png';
-    this.x = x;
-    this.y = y;
-    this.speed = speed;
-  }
-  update(dt) {
-    if (this.x >= -150 && this.x < 500) {
-      this.x += this.speed * dt;
-    }
-    else (this.x = -150);
-  }
-
-  render(){
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-  }
-}
-
-class Player {
-  constructor(){
-    this.sprite = 'images/char-cat-girl.png';
-    this.x = 200;
-    this.y = 420;
-  }
-
-  render(){
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    constructor(x, y, speed) {
+        this.sprite = 'images/enemy-bug.png';
+        this.x = x;
+        this.y = y;
+        this.speed = speed;
     }
 
-  update(){
-    for (let enemy of allEnemies) {
-        if ((enemy.x >= player.x - 75) && (enemy.x <= player.x + 75)){
-            if ((enemy.y >= player.y - 45) && (enemy.y <= player.y + 55)){
-      player.x = 200; player.y = 420;
+    render() {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
-  }
-    }
-    if (player.y === 0) {
-      player.y = .5;
-      return reset();
+    /*
+     * function for establishing speed of bugs
+     * function keeps bugs just off screen when starting and ending loop
+     */
+    update(dt) {
+        if (this.x >= -150 && this.x < 500) {
+            this.x += this.speed * dt;
+        } else(this.x = -150);
     }
 }
 
-//PLAYER MOVEMENT
+//PLAYER CLASS
 /*
-Use keyboard arrows to move
-Includes character boundaries
-*/
-  handleInput(input){
-    if (input == 'left' && this.x >= 0) {
-      this.x = this.x +- 30; //70
+ * constructor initializes variables for player image, location, and speed
+ */
+class Player {
+    constructor() {
+        this.sprite = 'images/char-cat-girl.png';
+        this.x = 200;
+        this.y = 420;
     }
-    else if (input == 'right' && this.x <= 400) {
-      this.x = this.x + 30;
-    }
-    else if (input == 'up' && this.y > .5) {
-      this.y = this.y +- 30;
-    }
-    else if (input == 'down' && this.y < 420) {
-      this.y = this.y + 30;
-        }
-  }
-}
 
+    render() {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+    /*
+    * function that detects player and enemy collisions
+    * when the player colides with (is within x and y range of) bug,
+    player returns to starting position.
+    */
+    update() {
+        for (let enemy of allEnemies) {
+            if ((enemy.x >= player.x - 75) && (enemy.x <= player.x + 75)) {
+                if ((enemy.y >= player.y - 45) && (enemy.y <= player.y + 55)) {
+                    player.x = 200;
+                    player.y = 420;
+                }
+            }
+        }
+        /*
+        * function calls reset() when the player reaches the water
+        * when player reacher the water, player is repositioned in order to prevent
+        repeated calls of reset()
+        * reset() stops bug movement and calls displayModal()
+        */
+        if (player.y === 0) {
+            player.y = .5;
+            return reset();
+        }
+    }
+
+    //PLAYER MOVEMENT
+    /*
+     * use keyboard arrows to move
+     * includes character boundaries, so that character can not be moved off screen
+     */
+    handleInput(input) {
+        if (input == 'left' && this.x >= 0) {
+            this.x = this.x + -30; //70
+        } else if (input == 'right' && this.x <= 400) {
+            this.x = this.x + 30;
+        } else if (input == 'up' && this.y > .5) {
+            this.y = this.y + -30;
+        } else if (input == 'down' && this.y < 420) {
+            this.y = this.y + 30;
+        }
+    }
+}
+//
+/*
+ * player variable
+ * bug variables with parameters of x, y, speed
+ * allEnemies array with three bugs pushed into it
+ *
+ */
 const player = new Player();
 const bug1 = new Enemy(-135, 70, 200);
 const bug2 = new Enemy(-150, 150, 40);
@@ -82,9 +108,9 @@ allEnemies.push(bug2);
 allEnemies.push(bug3);
 
 /*
-This listens for key presses and sends the keys to the
-Player.handleInput() method.
-*/
+ * this listens for key presses and sends the keys to the
+ player.handleInput() method
+ */
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
         37: 'left',
@@ -95,7 +121,6 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
-
 
 //MODAL DISPLAY FUNCTION
 function displayModal() {
@@ -108,16 +133,16 @@ function displayModal() {
 
 //MODAL CLICK EVENTS
 /*
-NOTE: when attempting to use // yesButton.addEventListener("click", function(){}) // the console
+  * NOTE: when attempting to use // yesButton.addEventListener("click", function(){}) // the console
 registered 4 clicks
-NOTE: Using $('.yes') with the above, resulted in an error
+  * NOTE: Using $('.yes') with the above, resulted in an error
 */
 function modalClick() {
     const yesButton = document.querySelector('.yes');
     const noButton = document.querySelector('.no');
 
     yesButton.onclick = function() {
-        location.reload(); // is the cheater function :)
+        location.reload();
     };
 
     noButton.onclick = function() {
@@ -128,13 +153,14 @@ function modalClick() {
 
 //END OF GAME FUNCTION
 /*
-bugs stop, modal appears
-*/
+ * bugs stop moving, modal appears
+ */
 function reset() {
-  allEnemies.forEach(function(enemy){
-  enemy.speed = 0;
-  displayModal();
-});}
+    allEnemies.forEach(function(enemy) {
+        enemy.speed = 0;
+        displayModal();
+    });
+}
 
 //TOGGLES MODAL TO "DISPLAY: NONE" TO START THE GAME
 displayModal();
