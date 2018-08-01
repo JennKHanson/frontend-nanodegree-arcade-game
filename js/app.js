@@ -40,6 +40,7 @@ class Player {
 
     }
     if (player.y < 20) {
+      displayModal();
     //alert('Win!');
     }
 }
@@ -91,3 +92,29 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+
+
+//MODAL DISPLAY FUNCTION
+function displayModal() {
+    const modalShow = document.querySelector('.modal');
+    const modalBoxShow = document.querySelector('.modal-box');
+    modalShow.classList.toggle('modal-display');
+    modalBoxShow.classList.toggle('modal-display');
+}
+
+//MODAL CLICK EVENTS
+function modalClick() {
+    const yesButton = document.querySelector('.yes');
+    const noButton = document.querySelector('.no');
+
+    yesButton.addEventListener('click', function() {
+        displayModal();
+        //location.reload() is the cheater function :)
+    });
+
+    noButton.addEventListener('click', function() {
+        displayModal();
+    });
+}
+displayModal();
