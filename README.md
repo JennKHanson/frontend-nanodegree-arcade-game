@@ -27,11 +27,12 @@ https://www.youtube.com/watch?v=JcQYGbg0IkQ&feature=youtu.be
 * Mathew Cranford's
 https://matthewcranford.com
 
+* Sachin Sharma
+Sachin helped me figure out why I was getting a classList error. I needed to move the scripts to the
+bottom of the page because displayModal was being called before the DOM was fully loaded.
+
 * Udacity Resources
 https://www.diigo.com/outliner/fj3m65/Udacity-Classic-Arcade-Game-Project-(project-%233)?key=al7ek43dms
-
-
-
 
 
 
