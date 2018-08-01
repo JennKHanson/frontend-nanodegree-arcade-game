@@ -13,7 +13,9 @@
  * writing app.js a little simpler to work with.
  */
 
+
 var Engine = (function(global) {
+
     /* Predefine the variables we'll be using within this scope,
      * create the canvas element, grab the 2D context for that canvas
      * set the canvas elements height/width and add it to the DOM.
@@ -63,7 +65,7 @@ var Engine = (function(global) {
      * game loop.
      */
    function init() {
-        reset();
+        //reset();
         lastTime = Date.now();
         main();
     }
@@ -79,7 +81,6 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-         //checkCollisions();
     }
 
     /* This is called by the update function and loops through all of the
@@ -160,9 +161,9 @@ var Engine = (function(global) {
      * handle game reset states - maybe a new game menu or a game over screen
      * those sorts of things. It's only called once by the init() method.
      */
-    function reset() {
+
         // noop
-    }
+
 
     /* Go ahead and load all of the images we know we're going to need to
      * draw our game level. Then set init as the callback method, so that when
@@ -182,4 +183,5 @@ var Engine = (function(global) {
      * from within their app.js files.
      */
     global.ctx = ctx;
+
 })(this);
