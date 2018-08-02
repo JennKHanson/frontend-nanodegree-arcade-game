@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
 //TODO: Add number of hits
@@ -14,7 +14,6 @@
 /*
  * constructor initializes variables for enemy image, location, and speed
  */
- 
 class Enemy {
     constructor(x, y, speed) {
         this.sprite = 'images/enemy-bug.png';
@@ -65,22 +64,15 @@ class Player {
                 }
             }
         }
-        /*
-        * function calls reset() when the player reaches the water
-        * when player reacher the water, player is repositioned in order to prevent
-        repeated calls of reset()
-        * reset() stops bug movement and calls displayModal()
-        */
-        if (this.y === 0) {
-            this.y = 0.5;
-            return reset();
-        }
+
     }
 
     //PLAYER MOVEMENT
     /*
      * use keyboard arrows to move
      * includes character boundaries, so that character can not be moved off screen
+     * function calls reset() when the player reaches the water
+     * reset() stops bug movement and calls displayModal()
      */
     handleInput(input) {
         if (input == 'left' && this.x >= 0) {
@@ -92,9 +84,12 @@ class Player {
         } else if (input == 'down' && this.y < 420) {
             this.y = this.y + 30;
         }
+        if (this.y === 0) {
+            return reset();
+        }
     }
 }
-//
+
 /*
  * player variable
  * bug variables with parameters of x, y, speed
