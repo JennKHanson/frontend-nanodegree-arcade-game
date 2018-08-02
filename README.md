@@ -1,9 +1,10 @@
 
-# Memory Game Project
+# Arcade Game
 
 ## Table of Contents
 
 * [Description](#description)
+* [Loading the Game](#loadingthegame)
 * [How to Play](#howtoplay)
 * [References](#references)
 
@@ -15,6 +16,10 @@ Functionality for this game was implemented by using object-oriented JavaScript.
 
 * Project Rubric
 https://review.udacity.com/#!/rubrics/15/view
+
+## Loading the Game
+
+Load index.html in a browser
 
 ## How to Play
 * The object of the game is to move the character to the water without being hit by a bug.

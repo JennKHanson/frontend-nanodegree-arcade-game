@@ -1,3 +1,5 @@
+"use strict";
+
 /**
 //TODO: Add number of hits
 //TODO: Add levels -- bugs get faster as level increases
@@ -12,6 +14,7 @@
 /*
  * constructor initializes variables for enemy image, location, and speed
  */
+ 
 class Enemy {
     constructor(x, y, speed) {
         this.sprite = 'images/enemy-bug.png';
@@ -55,10 +58,10 @@ class Player {
     */
     update() {
         for (let enemy of allEnemies) {
-            if ((enemy.x >= player.x - 75) && (enemy.x <= player.x + 75)) {
-                if ((enemy.y >= player.y - 45) && (enemy.y <= player.y + 55)) {
-                    player.x = 200;
-                    player.y = 420;
+            if ((enemy.x >= this.x - 75) && (enemy.x <= this.x + 75)) {
+                if ((enemy.y >= this.y - 45) && (enemy.y <= this.y + 55)) {
+                    this.x = 200;
+                    this.y = 420;
                 }
             }
         }
@@ -68,8 +71,8 @@ class Player {
         repeated calls of reset()
         * reset() stops bug movement and calls displayModal()
         */
-        if (player.y === 0) {
-            player.y = .5;
+        if (this.y === 0) {
+            this.y = 0.5;
             return reset();
         }
     }
@@ -84,7 +87,7 @@ class Player {
             this.x = this.x + -30; //70
         } else if (input == 'right' && this.x <= 400) {
             this.x = this.x + 30;
-        } else if (input == 'up' && this.y > .5) {
+        } else if (input == 'up' && this.y > 0.5) {
             this.y = this.y + -30;
         } else if (input == 'down' && this.y < 420) {
             this.y = this.y + 30;
